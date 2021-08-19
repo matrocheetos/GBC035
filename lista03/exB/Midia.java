@@ -1,10 +1,11 @@
+package exB;
+
 public class Midia {
     
     private String nome, genero;
     private int tipo; // (1)audio (2)video
     private int ano, nroDeCopias;
     private double preco;
-    private static int ct = 0;
 
     public Midia(String nome, String genero, int tipo, int ano, int nroDeCopias, double preco) {
         this.nome = nome;
@@ -13,7 +14,16 @@ public class Midia {
         this.ano = ano;
         this.nroDeCopias = nroDeCopias;
         this.preco = preco;
-        ct++;
+    }
+
+    public void mostra(){
+        System.out.println("Nome: "+nome);   
+        System.out.println("Genero: "+genero);
+        if (tipo==1) System.out.println("Tipo: audio");
+        else System.out.println("Tipo: video");
+        System.out.println("Ano: "+ano);
+        System.out.println("Numero de copias: "+nroDeCopias);
+        System.out.println("Preco de locacao: "+preco);
     }
 
     public String getNome() {
@@ -38,9 +48,5 @@ public class Midia {
 
     public double getPreco() {
         return preco;
-    }
-
-    public static int getCt() {
-        return ct;
     }
 }

@@ -1,3 +1,5 @@
+package exB;
+
 public class Audio extends Midia {
     
     private String cantor;
@@ -9,5 +11,11 @@ public class Audio extends Midia {
         super(nome,genero,tipo,ano,nroDeCopias,preco);
         this.cantor = cantor;
         this.nroDeFaixas = nroDeFaixas;
+    }
+
+    public void mostra() {
+        super.mostra();
+        System.out.println("Cantor: "+cantor);
+        System.out.println("Numero de faixas: "+nroDeFaixas);
     }
 }

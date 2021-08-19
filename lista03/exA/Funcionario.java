@@ -1,15 +1,21 @@
+package exA;
+
 public class Funcionario {
     
     private String nome;
     private int rg;
     private double salario;
-    private static int ct = 0;
 
     public Funcionario(String nome, int rg, double salario) {
         this.nome = nome;
         this.rg = rg;
         this.salario = salario;
-        ct++;
+    }
+
+    public void mostra() {
+        System.out.println("Nome: "+nome);
+        System.out.println("RG: "+rg);
+        System.out.println("Salario base: "+salario);
     }
 
     public String getNome() {
@@ -22,9 +28,5 @@ public class Funcionario {
 
     public double getSalario() {
         return salario;
-    }
-
-    public static int getCt() {
-        return ct;
     }
 }

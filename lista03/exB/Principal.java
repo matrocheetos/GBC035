@@ -1,3 +1,5 @@
+package exB;
+
 import java.util.Scanner;
 
 public class Principal {
@@ -9,10 +11,12 @@ public class Principal {
         VHS vhs[] = new VHS[5];
         Scanner sc = new Scanner(System.in);
         int op = 0;
+        int cta=0, ctv=0, ctvhs=0;
         do {
             System.out.println("--- MENU ---");
             System.out.println("1) Adicionar midia");
-            System.out.println("2) Sair");
+            System.out.println("2) Mostrar registros");
+            System.out.println("3) Sair");
             System.out.print("OPCAO: ");
             op = sc.nextInt();
 
@@ -40,11 +44,16 @@ public class Principal {
                         int nroDeFaixas = sc.nextInt();
 
                         Audio x = new Audio(nome,genero,tipo,ano,nroDeCopias,preco,cantor,nroDeFaixas);
-                        a[Audio.getCt()] = x;
+                        a[cta] = x;
+                        cta++;
                     } else if(tipo==2) { //video
+                        System.out.print("Numero de atores: ");
+                        int totalAtores = sc.nextInt();
+                        String atores[] = new String[totalAtores];
                         System.out.print("Nomes dos atores: ");
                         sc.nextLine(); //limpa buffer
-                        String atores = sc.nextLine();
+                        for(int i=0;i<totalAtores;i++)
+                            atores[i] = sc.nextLine();
                         System.out.print("Diretor: ");
                         String diretor = sc.nextLine();
                         System.out.print("Duracao (em minutos): ");
@@ -58,14 +67,33 @@ public class Principal {
                             boolean rebobinada = sc.nextBoolean();
                             
                             VHS x = new VHS(nome,genero,tipo,ano,nroDeCopias,preco,atores,diretor,duracao,classificacaoEtaria,rebobinada);
-                            vhs[VHS.getCt()] = x;
+                            vhs[ctvhs] = x;
+                            ctvhs++;
                         } else {
                             Video x = new Video(nome,genero,tipo,ano,nroDeCopias,preco,atores,diretor,duracao,classificacaoEtaria);
-                            v[Video.getCt()] = x;
+                            v[ctv] = x;
+                            ctv++;
                         }
                     }
                     break;
+                case 2:
+                    System.out.println("CDs:");
+                    for(int i=0;i<cta;i++) { //audio
+                        System.out.println("---- "+i+" ----");
+                        a[i].mostra();
+                    }
+                    System.out.println("DVDs:");
+                    for(int i=0;i<ctv;i++) { //video
+                        System.out.println("---- "+i+" ----");
+                        v[i].mostra();
+                    }
+                    System.out.println("VHS:");
+                    for(int i=0;i<ctvhs;i++) { //vhs
+                        System.out.println("---- "+i+" ----");
+                        vhs[i].mostra();
+                    }
+                    break;
             }
-        } while (op!=2);
+        } while (op!=3);
     }
 }
