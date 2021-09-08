@@ -18,4 +18,14 @@ public class Forma {
     public String getID() {
         return id;
     }
+
+    public double obterArea() {
+        return -1;
+    }
+    public double obterVolume() {
+        return -1;
+    }
+    public boolean interceptam(Forma f) {
+        return false;
+    }
 }

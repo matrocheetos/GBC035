@@ -77,12 +77,11 @@ public class Principal {
                 }
             } else if(op==8) { // mostrar area
                 for(int i=0;i<ct;i++) {
-                    if(f[i] instanceof FormaBidimensional)
-                        // System.out.println("Area "+i+" "+f[i].getID()+": "+((FormaBidimensional)f[i]).obterArea());
+                    if(f[i] instanceof FormaBidimensional)  {
                         System.out.println("Area "+i+" "+f[i].getID()+": "+f[i].obterArea());
-                    else
-                        // System.out.println("Area "+i+" "+f[i].getID()+": "+((FormaTridimensional)f[i]).obterVolume());
+                    } else {
                         System.out.println("Area "+i+" "+f[i].getID()+": "+f[i].obterVolume());
+                    }
                 }
             } else if(op==9) { //verificar se circulos/esferas interceptam
                 System.out.print("Objeto 1: ");
@@ -90,7 +89,7 @@ public class Principal {
                 System.out.print("Objeto 2: ");
                 int y = sc.nextInt();
                 if(f[x] instanceof Circulo && f[y] instanceof Circulo) {
-                    if(f[x].interceptam(f[y]))
+                    if(((Circulo)f[x]).interceptam(f[y]))
                         System.out.println("Os circulos interceptam");
                     else
                         System.out.println("Os circulos nao interceptam");
